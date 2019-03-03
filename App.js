@@ -12,6 +12,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 
 import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
 
+import Splash from './src/screens/Splash';
 import ScreenOne from './src/screens/ScreenOne';
 import ScreenTwo from './src/screens/ScreenTwo';
 
@@ -48,9 +49,16 @@ const TabNavigator = createBottomTabNavigator({
 });
 
 const AppNavigator = createStackNavigator({
+  Splash: {
+    screen: Splash
+  },
   Home: {
     screen: TabNavigator
   }
-});
+},
+  {
+    headerMode: 'none'
+  }
+);
 
 export default createAppContainer(AppNavigator);
