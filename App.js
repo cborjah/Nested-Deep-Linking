@@ -10,7 +10,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
-import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, SafeAreaView } from "react-navigation";
 
 import Splash from './src/screens/Splash';
 import ScreenOne from './src/screens/ScreenOne';

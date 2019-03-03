@@ -9,14 +9,15 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 
 type Props = {};
 export default class ScreenTwo extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.welcome}>ScreenTwo</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }

@@ -9,7 +9,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions, StackActions, SafeAreaView } from 'react-navigation';
 
 type Props = {};
 export default class Splash extends Component<Props> {
@@ -21,14 +21,14 @@ export default class Splash extends Component<Props> {
       });
 
       this.props.navigation.dispatch(resetAction);
-    }, 2500);
+    }, 1000);
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.welcome}>SPLASH</Text>
-      </View>
+      </SafeAreaView>
     );
   }
 }
