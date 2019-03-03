@@ -10,6 +10,11 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from "react-navigation";
+
+import ScreenOne from './src/screens/ScreenOne';
+import ScreenTwo from './src/screens/ScreenTwo';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -18,13 +23,11 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class HomeScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <TabNavigator />
       </View>
     );
   }
@@ -33,18 +36,21 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // backgroundColor: '#F5FCFF',
+  }
 });
+
+const TabNavigator = createBottomTabNavigator({
+  ScreenOne: ScreenOne,
+  ScreenTwo: ScreenTwo,
+});
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: TabNavigator
+  }
+});
+
+export default createAppContainer(AppNavigator);
